@@ -1,4 +1,3 @@
-import java.io.Console;
 import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
@@ -10,7 +9,7 @@ public class Main {
         String green = "\u001B[32m"; // Green text
         String reset = "\u001B[0m";  // Reset color
         String yellow = "\u001B[33m"; // Yellow text
-        String outputColor = red;
+        String outputColor;
 
 
         Scanner s = new Scanner(System.in);
@@ -54,7 +53,6 @@ public class Main {
                     System.out.println(red + "!!! No free space left !!! \n !!!DRAW!!!" + reset);
                     break;
                 }
-                //player = player == 'R' ? 'B' : 'R';
 
             }
 
@@ -164,8 +162,6 @@ public class Main {
                 else { inRowNum = 0; }
             }
 
-
-
             inRowNum = 1;
 
             // Check Horizontals:
@@ -177,14 +173,12 @@ public class Main {
                 else { inRowNum = 0; }
             }
             inRowNum = 0;
+
             // Check Diagonals:
-
-
             int startingX = Math.max(lastThrowX - lastThrowY, 0);
             int startingY = Math.max(lastThrowY - lastThrowX, 0);
 
             // L to R :
-
             while (startingY < slots.length && startingX < slots[0].length){
                 if(slots[startingY][startingX] == player){
                     inRowNum++;
@@ -210,8 +204,6 @@ public class Main {
                 startingX--;
                 startingY++;
             }
-
-            //if()
 
             return 'X';
         }
